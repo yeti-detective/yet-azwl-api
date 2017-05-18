@@ -4,13 +4,9 @@ const fs = require('fs')
 let saveData = []
 
 osmosis.get("https://www.amazon.com/gp/registry/wishlist/1PG248H308KJF/")
-  .set({
-    "Title": '#profile-list-name',
-    "WL_Items": ['#item-page-wrapper a@title'],
-    "WL_Links": ['#item-page-wrapper a@href'],
-    "WL_Imgs": ['#item-page-wrapper img@src'],
-    "WL_prices": ['.a-color-price']
-  })
+  .set('Title', '#profile-list-name')
+  .set('WL_Items', {'item-title':'#item-page-wrapper a@title'})
+  .set('WL_Items', {'item-img': '#item-page-wrapper img@src'})
   .log(console.log)
   .data((data)=>{
     console.log(data)
