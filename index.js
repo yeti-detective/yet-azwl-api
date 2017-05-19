@@ -1,3 +1,5 @@
+"use strict"
+
 const osmosis = require('osmosis')
 const fs = require('fs')
 
