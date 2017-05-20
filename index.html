@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>AWL API</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <style>
+      body {
+        height: 100%;
+        background: linear-gradient(#EF8F1D, #FFBE74);
+      }
+
+      #main {
+        width: 80%;
+        min-width: 350px;
+        margin: auto;
+      }
+
+      .main {
+        font-family: 'Lato', sans-serif;
+        color: #985300;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="main">Yeti Detective's Amazon Wishlist API</h2>
+    <div class="main" id="main" >
+      <p class="main">Ok, check it out. Get the ID of your Amazon wishlist like so:</p>
+      <img src="https://dl.dropbox.com/s/y8piuo0t5u7tsdk/Screen%20Shot%202017-05-20%20at%201.26.06%20PM.png?dl=0">
+      <p class="main">Then send it to the api like thus:</p>
+      <img src="">
+      <p class="main">You'll get back a JSON with the name of the wishlist (.title) and the properties 0 thru (number of items on your wishlist) the values of each item being an object with the properties (.title) giving the name of the item, (.url) giving a link to the item, and (.img) giving the url of the item's image.</p>
+      <p class="main">If you use this for your project & want to say thanks, feel free to PayPal me a couple bux</p>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="RAXHTUQWHHMRU">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+      </form>
+    </div>
+  </body>
+</html>

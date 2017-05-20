@@ -2,11 +2,16 @@
 
 const express = require('express')
 const app = express()
+const path = require('path')
 
 const osmosis = require('osmosis')
 // const fs = require('fs')
 
 var port = process.env.PORT || 8000
+
+app.get('/', (req, res)=>{
+  res.sendFile(path.join(__dirname + '/index.html'))
+})
 
 app.get('/:wishlist', (req, res)=>{
 
@@ -15,7 +20,6 @@ app.get('/:wishlist', (req, res)=>{
   let links = []
   let imgs = []
   // let prices = []
-
 
   osmosis.get("https://www.amazon.com/gp/registry/wishlist/" + req.params.wishlist)
     .set({
@@ -44,7 +48,7 @@ app.get('/:wishlist', (req, res)=>{
       })
     })
     .done((data)=>{
-      for(var i = 0; i < titles.length; i++){
+      for(var i = 1; i < titles.length + 1; i++){
         WL[i] = {
           title: titles[i],
           url: links[i],
