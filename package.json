@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/yeti-detective/yet-azwl-api#readme",
   "dependencies": {
+    "cors": "^2.8.3",
     "express": "^4.15.3",
     "fs": "0.0.1-security",
     "osmosis": "^1.1.4",

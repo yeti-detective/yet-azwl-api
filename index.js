@@ -1,11 +1,11 @@
 "use strict"
 
+// npm packages
 const express = require('express')
 const app = express()
 const path = require('path')
-
+const cors = require('cors')
 const osmosis = require('osmosis')
-// const fs = require('fs')
 
 var port = process.env.PORT || 8000
 
@@ -13,7 +13,7 @@ app.get('/', (req, res)=>{
   res.sendFile(path.join(__dirname + '/index.html'))
 })
 
-app.get('/:wishlist', (req, res)=>{
+app.get('/:wishlist', cors(), (req, res)=>{
 
   let WL = {}
   let titles = []
