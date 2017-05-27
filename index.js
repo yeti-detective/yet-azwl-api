@@ -7,6 +7,7 @@ const path = require('path')
 const cors = require('cors')
 const osmosis = require('osmosis')
 
+// this is how you set up your ports for heroku deployment, ok?
 var port = process.env.PORT || 8000
 
 app.get('/', (req, res)=>{
@@ -15,7 +16,7 @@ app.get('/', (req, res)=>{
 
 app.get('/:wishlist', cors(), (req, res)=>{
 
-  let WL = {}
+  let WL = { wishes: [] }
   let titles = []
   let links = []
   let imgs = []
@@ -27,11 +28,10 @@ app.get('/:wishlist', cors(), (req, res)=>{
       "WL_Items": ['#item-page-wrapper a@title'],
       "WL_Links": ['#item-page-wrapper a@href'],
       "WL_Imgs": ['#item-page-wrapper img@src'],
-      // "WL_prices": ['.a-color-price']
+      // "WL_prices": ['.a-color-price'] // this doesn't work :'(
     })
     .log(console.log)
     .data((data)=>{
-      // saveData.push(data)
       WL.title = data.Title
       data.WL_Items.map((name)=>{
         if(!titles.includes(name)){
@@ -49,11 +49,11 @@ app.get('/:wishlist', cors(), (req, res)=>{
     })
     .done((data)=>{
       for(var i = 1; i < titles.length + 1; i++){
-        WL[i] = {
+        WL.wishes.push({
           title: titles[i],
           url: links[i],
           img: imgs[i]
-        }
+        })
 
       }
       res.json(JSON.stringify(WL))
